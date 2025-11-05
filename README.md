@@ -1,15 +1,42 @@
-# DevOps Infrastructure Template — Flask + CI/CD + Monitoring
+<h1 align="center">🚀 DevOps Infrastructure Template — Flask + CI/CD + Monitoring</h1>
 
-## Кратко
-Готовый к развёртыванию шаблон инфраструктуры:
-- демо-приложение: Flask (пример `flaskr`)
-- CI/CD: GitHub Actions (сборка образа и пуш на Docker Hub)
-- Деплой: `deploy.sh` (одна команда для обновления контейнера)
-- Monitoring: Prometheus + Grafana + cAdvisor
-- Файлы: docker-compose, prometheus.yml, шаблоны Grafana
+<p align="center">
+  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge" alt="Build Status">
+  <img src="https://img.shields.io/badge/docker-ready-blue?style=for-the-badge&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/grafana-dashboard-orange?style=for-the-badge&logo=grafana" alt="Grafana">
+  <img src="https://img.shields.io/badge/prometheus-metrics-red?style=for-the-badge&logo=prometheus" alt="Prometheus">
+</p>
+
+<p align="center">
+  <strong>Production-ready DevOps environment template</strong> featuring  
+  <br>Flask application, GitHub Actions CI/CD pipeline, Dockerized deployment, and real-time Prometheus + Grafana monitoring.
+</p>
+
+---
+
+## ✨ Features at a Glance
+- 🧩 **Modular structure** — clean separation between `app`, `monitoring`, and `scripts`
+- 🐳 **Fully containerized** — runs entirely via Docker Compose
+- 🔄 **Automated CI/CD** — GitHub Actions builds and pushes to Docker Hub
+- 📊 **Real-time monitoring** — Prometheus + Grafana + cAdvisor
+- 🚀 **One-command deploy** — `./scripts/deploy.sh`
+- 🧠 **Perfect for learning, demos, or production bootstrap**
+- 🎨 **Dark Grafana dashboard** — presentation-ready visuals
+
+---
+
+## 🧱 Overview
+A fully integrated DevOps infrastructure template including:
+- Backend demo app: **Flask (`flaskr`)**
+- CI/CD: **GitHub Actions** (build & push Docker image)
+- Deployment: **`deploy.sh`** — one command for updates
+- Monitoring: **Prometheus + Grafana + cAdvisor**
+- Config files: `docker-compose.yml`, `prometheus.yml`, and Grafana templates
+
+---
 
 <details>
-<summary>📁 Project Structure</summary>
+<summary>📁 Project Structure (click to expand)</summary>
 
 ```text
 📦 packaged_solution
@@ -57,60 +84,77 @@
 ```
 </details>
 
-
-## Быстрый старт (локально)
-1. Запустить приложение, мониторинг и графану:
-```bash
-cd ~/devops_practice/packaged_solution/monitoring
-docker compose up -d
-# затем, в корне проекта (если есть docker-compose для всего стека)
-# docker compose -f docker-compose.full.yml up -d
-```
-
-2. Деплой образа (локально, при наличии образа в Docker Hub):
-cd ~/devops_practice/packaged_solution/scripts
-./deploy.sh
-
-3. Доступы:
-Flask app: http://localhost:5000
-
-Prometheus: http://localhost:9090
-
-Grafana: http://localhost:3000 (admin/admin)
-
-## Dashboard Customization (Grafana)
-
-The included Grafana dashboard (`flask_monitoring_dashboard.json`)
-is fully editable and optimized for a minimal cAdvisor + Prometheus setup.
-You can easily adapt it to your environment or extend it with new panels.
-
-### Legend Recommendations
-
-| Panel | Suggested Legend | Description |
-|-------|------------------|--------------|
-| **Total CPU Usage (%)** | `{{job}}` | Displays which Prometheus job is providing CPU metrics. |
-| **Total Memory Usage (MB)** | `Total` | Aggregate memory usage across all containers. |
-| **Network Traffic (MB/s)** | `Receive` / `Transmit` | Two separate queries showing inbound and outbound traffic. |
-| **System Uptime (seconds)** | `Uptime` | Shows the uptime of the Prometheus process. |
-| **Prometheus Targets** | `{{instance}}` | Displays all monitored endpoints (Prometheus, Grafana, cAdvisor). |
-
-### Visual Recommendations
-- **Theme:** Dark (default for this template)
-- **Time range:** `last 1 hour`
-- **Auto-refresh:** every 5 seconds
-- **Legend placement:** “Table” (bottom of panel)
-- **Color thresholds:**
-  - Green   — Normal  
-  - Yellow  — Warning  
-  - Red     — Critical  
-
-### Example Layout
-1. **Top row:** CPU / Memory / Network  
-2. **Bottom row:** Uptime / Targets status  
-3. **Optional:** add disk or system-load panels if node-exporter is available.
+> **Legend**
+> 
+> | Emoji | Meaning | Description |
+> |:------:|:---------|:-------------|
+> | 📦 | **Root folder** | Main project directory |
+> | 🚀 | **Application layer** | Flask app, Docker build, and dependencies |
+> | 🧩 | **Module / Template** | Flask components or HTML templates |
+> | ⚙️ | **Script / Tooling** | Deployment or automation scripts |
+> | 🐳 | **Docker / Compose** | Container and environment configuration |
+> | 🧾 | **Config / Manifest** | Application configuration or schema |
+> | 🧪 | **Tests** | Pytest test cases and fixtures |
+> | 📊 | **Monitoring stack** | Prometheus, Grafana, cAdvisor setup |
+> | 📡 | **Prometheus** | Metrics collection and targets config |
+> | 📈 | **Grafana** | Dashboards and visualization templates |
+> | 📚 | **Docs** | Documentation, images, or diagrams |
+> | 🧰 | **CI/CD** | GitHub Actions, pipelines, automation |
+> | 📘 / 📗 / 📜 | **Docs & License** | README and license files |
 
 ---
 
-This dashboard layout is designed for a clean,
-“presentation-ready” look — perfect for client demos or
-infrastructure template sales.
+## ⚡ Quick Start (Local Setup)
+1️⃣ Run the application and monitoring stack
+```
+cd ~/devops_practice/packaged_solution/monitoring
+docker compose up -d
+
+# or launch the full stack
+# docker compose -f docker-compose.full.yml up -d
+```
+2️⃣ Deploy the latest image
+```
+cd ~/devops_practice/packaged_solution/scripts
+./deploy.sh
+```
+3️⃣ Access points
+- **Flask App:** http://localhost:5000
+- **Prometheus:** http://localhost:9090
+- **Grafana:** http://localhost:3000  (admin / admin)
+
+## 📊 Grafana Dashboard Customization
+The included dashboard (flask_monitoring_dashboard.json)
+is optimized for **aggregated metrics** from cAdvisor and Prometheus.
+
+**Legend Settings**
+| Panel                 | Legend                 | Description                  |
+| --------------------- | ---------------------- | ---------------------------- |
+| **CPU Usage (%)**     | `{{job}}`              | Displays Prometheus job      |
+| **Memory Usage (MB)** | `Total`                | Aggregated container memory  |
+| **Network Traffic**   | `Receive` / `Transmit` | Inbound and outbound network |
+| **Uptime**            | `Uptime`               | Process uptime metric        |
+| **Targets**           | `{{instance}}`         | Lists monitored services     |
+---
+
+**Recommended Visualization**
+- Theme: **Dark**
+- Time range: `Last 1 hour`
+- Refresh interval: 5s
+- Legend placement: **Table (bottom)**
+- Color thresholds: 🟢 Normal • 🟡 Warning • 🔴 Critical
+
+## 🧭 About
+This template demonstrates a **complete DevOps lifecycle** —
+from CI/CD automation to monitoring and deployment orchestration.
+
+Ideal for:
+
+- 🔍 Learning modern DevOps practices
+- 💼 Building a professional GitHub portfolio
+- 🧩 Rapid prototyping of real infrastructure setups
+
+## 🏷️ Tags
+`devops` • `docker` • `flask` • `prometheus` • `grafana` • `monitoring` • `cicd` • `template`
+
+<p align="center"> <em>Made with ❤️ by <strong>Eldor Zufarov</strong></em> </p>
