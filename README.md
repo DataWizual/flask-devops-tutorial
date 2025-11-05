@@ -10,6 +10,7 @@
 
 ## Структура
 ```
+<details>
 packaged_solution/
 ├── app
 │ ├── deploy.sh
@@ -53,7 +54,6 @@ packaged_solution/
 └── scripts
 └── deploy.sh
 ```
-
 ## Быстрый старт (локально)
 1. Запустить приложение, мониторинг и графану:
 ```bash
