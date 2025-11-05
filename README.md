@@ -8,51 +8,56 @@
 - Monitoring: Prometheus + Grafana + cAdvisor
 - Файлы: docker-compose, prometheus.yml, шаблоны Grafana
 
-## Структура
+<details>
+<summary>📁 Project Structure</summary>
+
+```text
+📦 packaged_solution
+├── 🚀 app
+│   ├── ⚙️ deploy.sh
+│   ├── 🐳 docker-compose.yml
+│   ├── 🧱 Dockerfile
+│   ├── 🧩 flaskr
+│   │   ├── 🔐 auth.py
+│   │   ├── 📰 blog.py
+│   │   ├── 🗄️ db.py
+│   │   ├── 📄 __init__.py
+│   │   ├── 🧾 schema.sql
+│   │   ├── 🎨 static
+│   │   │   └── style.css
+│   │   └── 🖼️ templates
+│   │       ├── 🔑 auth
+│   │       │   ├── login.html
+│   │       │   └── register.html
+│   │       ├── 🧩 base.html
+│   │       └── 📰 blog
+│   │           ├── create.html
+│   │           ├── index.html
+│   │           └── update.html
+│   ├── 📜 LICENSE.txt
+│   ├── 🧾 pyproject.toml
+│   ├── 📘 README.md
+│   ├── 📗 README.rst
+│   └── 🧪 tests
+│       ├── conftest.py
+│       ├── data.sql
+│       ├── test_auth.py
+│       ├── test_blog.py
+│       ├── test_db.py
+│       └── test_factory.py
+├── 🧰 ci
+├── 📚 docs
+├── 📊 monitoring
+│   ├── 🐳 docker-compose.yml
+│   ├── 📈 grafana
+│   └── 📡 prometheus
+│       └── prometheus.yml
+└── ⚙️ scripts
+    └── deploy.sh
 ```
-packaged_solution/
-├── app
-│ ├── deploy.sh
-│ ├── docker-compose.yml
-│ ├── Dockerfile
-│ ├── flaskr
-│ │ ├── auth.py
-│ │ ├── blog.py
-│ │ ├── db.py
-│ │ ├── init.py
-│ │ ├── schema.sql
-│ │ ├── static
-│ │ │ └── style.css
-│ │ └── templates
-│ │ ├── auth
-│ │ │ ├── login.html
-│ │ │ └── register.html
-│ │ ├── base.html
-│ │ └── blog
-│ │ ├── create.html
-│ │ ├── index.html
-│ │ └── update.html
-│ ├── LICENSE.txt
-│ ├── pyproject.toml
-│ ├── README.md
-│ ├── README.rst
-│ └── tests
-│ ├── conftest.py
-│ ├── data.sql
-│ ├── test_auth.py
-│ ├── test_blog.py
-│ ├── test_db.py
-│ └── test_factory.py
-├── ci
-├── docs
-├── monitoring
-│ ├── docker-compose.yml
-│ ├── grafana
-│ └── prometheus
-│ └── prometheus.yml
-└── scripts
-└── deploy.sh
-```
+</details>
+
+
 ## Быстрый старт (локально)
 1. Запустить приложение, мониторинг и графану:
 ```bash
