@@ -10,7 +10,6 @@
 
 ## Структура
 ```
-<details>
 packaged_solution/
 ├── app
 │ ├── deploy.sh
